@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"net/http"
 	"os"
 	"path"
 
@@ -25,7 +24,7 @@ func main() {
 	filepath := parseArgs(os.Args)
 	config := ReadConfig(filepath)
 
-	httpClient := &http.Client{}
+	httpClient := MakeHttpClient(config.ProxyUrl)
 	bot, err := tgbotapi.NewBotAPIWithClient(config.Token, httpClient)
 	if err != nil {
 		log.Fatalf("Could not init bot api: %s", err)

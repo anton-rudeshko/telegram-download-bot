@@ -15,6 +15,7 @@ type Config struct {
 	AllowedUserIds []int    `json:"allowed_user_ids"`
 	MimeWhitelist  []string `json:"mime_whitelist"` // optional
 	SuccessText    string   `json:"success_text"`   // optional
+	ProxyUrl       string   `json:"proxy_url"`      // optional
 }
 
 func ReadConfig(filepath string) Config {
