@@ -66,6 +66,7 @@ Required fields:
 * `bot_token` (`string`) — Surely you need a bot token.
 * `location` (`string`) — Store received files to this location.
 
+    * Missing directories in the path will be created on startup.
     * The file will be named same as the received document.
     * Files are limited in size by Telegram API to a maximum of 20 MB.
     * Existing files will be overwritten without a warning.

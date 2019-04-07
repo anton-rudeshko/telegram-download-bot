@@ -24,6 +24,10 @@ func main() {
 	filepath := parseArgs(os.Args)
 	config := ReadConfig(filepath)
 
+	if err := os.MkdirAll(config.Location, os.ModePerm); err != nil {
+		log.Fatalf(`Could not create target location "%s": %s`, config.Location, err)
+	}
+
 	httpClient := MakeHttpClient(config.ProxyUrl)
 	bot, err := tgbotapi.NewBotAPIWithClient(config.Token, httpClient)
 	if err != nil {
