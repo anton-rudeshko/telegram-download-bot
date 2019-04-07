@@ -41,8 +41,13 @@ func ReadConfig(filepath string) Config {
 	if config.Token == "" {
 		log.Fatal("config.bot_token is required")
 	}
+
 	if config.Location == "" {
 		log.Fatal("config.location is required")
+	}
+
+	if len(config.AllowedUserIds) == 0 {
+		log.Fatal("config.allowed_user_ids is missing or empty, all messages will be dropped")
 	}
 
 	log.Printf(`token is "%s"`, config.Token)
